@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-3">
+
+<h1>Please Sign Up!</h1>
+{% if pw_error %}
+{{pw_error}}
+<br>
+{% endif %}
+
+{% if userexists %}
+{{userexists}}
+<br>
+{% endif %}
+
+
+<form method="POST">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" name="username" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="password1">Password</label>
+    <input type="password" name="password1" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="password2">Confirm password</label>
+    <input type="password" name="password2" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <input type="submit" class="btn btn-secondary" value="Sign Up!">
+  </div>
+</form>
+
+</div>
+{% endblock %}
