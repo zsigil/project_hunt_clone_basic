@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-3">
+  <div class="row">
+    <div class="col-6 m-auto">
+      <h1>Create a New Product!</h1>
+      {% if error %}
+      {{error}}
+      <br>
+      {% endif %}
+
+
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="title">Product's name</label>
+          <input type="text" name="title" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="body">Tell us about the product</label>
+          <input type="text" name="body" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="url">Product's webpage</label>
+          <input type="text" name="url" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="icon">Upload icon</label>
+          <input type="file" name="icon" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="image">Upload image</label>
+          <input type="file" name="image" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <input type="submit" class="btn btn-secondary" value="Create Product">
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+
+
+</div>
+{% endblock %}
