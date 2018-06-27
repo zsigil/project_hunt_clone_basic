@@ -3,9 +3,28 @@
 
 {% block content %}
 <div class="container py-3">
-  {% if user.is_authenticated %}
-  <h5>Welcome, {{user.username}}!</h5>
-  {% endif %}
+
+{% for product in products %}
+<div class="row py-3" onclick="window.location='{% url 'products:detail' product.id %}';" style="cursor:pointer;">
+  <div class="col-md-3">
+    <img class="img-fluid list-icon" src="{{product.icon.url}}" alt="">
+  </div>
+  <div class="col-md-7">
+    <h3>{{product.title}}</h3>
+    <h5>Number of votes: {{product.votes_total}}</h5>
+  </div>
+  <div class="col-md-2">
+    <a href="{% url 'products:upvote' product.id %}" class="btn btn-outline-secondary">
+      <i class="fas fa-sort-up"></i> UPVOTE</a>
+  </div>
+
+</div>
+
+
+
+
+
+{% endfor %}
 
 </div>
 {% endblock %}

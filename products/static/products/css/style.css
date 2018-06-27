@@ -1,11 +1,23 @@
 .navbar {
-  border-bottom: 1px solid grey; 
+  border-bottom: 1px solid grey;
 }
 
 nav a {
   font-size: 1.5rem;
 }
 
+.main {
+  margin-bottom: 30px;
+}
+
 footer {
 
+}
+
+.detail-icon, .list-icon {
+  max-height: 120px;
+}
+
+.detail-image {
+  max-width: 500px;
 }

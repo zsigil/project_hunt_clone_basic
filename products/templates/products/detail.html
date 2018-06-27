@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container pb-5">
+
+  <div class="row pt-3">
+    <div class="col-md-3">
+      <img src="{{product.icon.url}}" class="img-fluid detail-icon">
+    </div>
+    <div class="col-md-7">
+      <h3>{{product.title}}</h3>
+
+      <h5>Number of votes: {{product.votes_total}}</h5>
+    </div>
+  </div>
+
+  <div class="row pt-3">
+    <div class="col-md-8">
+      <img src="{{product.image.url}}" class="img-fluid detail-image">
+    </div>
+    <div class="col-md-2">
+      <a href="{% url 'products:upvote' product.id %}" class="btn btn-outline-secondary">
+        <i class="fas fa-sort-up"></i> UPVOTE</a>
+    </div>
+  </div>
+
+  <div class="row pt-3 justify-content-start">
+    <div class="col-md-4">
+      <h5>Hunted by: {{product.hunter.username}}</h5>
+    </div>
+    <div class="col-md-4">
+      <h5><i class="far fa-calendar-alt"></i> {{product.pub_date_pretty}}</h5>
+    </div>
+  </div>
+
+  <div class="row pt-3">
+    <div class="col-md-8 ">
+      <p>{{product.body}}</p>
+    </div>
+  </div>
+
+
+</div>
+
+{% endblock %}
